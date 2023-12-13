@@ -136,8 +136,16 @@ public class TicTacToeGame implements Runnable {
 
     private void sendGameOverMessage() {
         try {
-            output1.writeObject("Game Over!");
-            output2.writeObject("Game Over!");
+            if (checkWin('X')) {
+                output1.writeObject("Game over: X won!");
+                output2.writeObject("Game over: X won!");
+            } else if (checkWin('O')) {
+                output1.writeObject("Game over: O won!");
+                output2.writeObject("Game over: O won!");
+            } else if (checkTie()) {
+                output1.writeObject("Game over: It's a tie!");
+                output2.writeObject("Game over: It's a tie!");
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
