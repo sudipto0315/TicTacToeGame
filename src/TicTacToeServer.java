@@ -4,6 +4,7 @@ import java.net.Socket;
 
 public class TicTacToeServer {
     public static void main(String[] args) {
+
         try {
             ServerSocket serverSocket = new ServerSocket(5555);
             System.out.println("Server is running...");
